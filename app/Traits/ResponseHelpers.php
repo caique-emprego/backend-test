@@ -15,6 +15,7 @@ trait ResponseHelpers
      *
      * @return \Illuminate\Http\JsonResponse
      */
+    // Rota 3: DefaultResponse já faz o papel dessa função
     public function sendResponse($data, $message = '', $status = 200)
     {
         $request = request();

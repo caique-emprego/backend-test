@@ -13,6 +13,7 @@ class RegisterRequest extends FormRequest
      */
     public function rules(): array
     {
+        // Rota 1: Request inconsistente
         return [
             'user_document_number'    => 'required|regex:/[0-9]{11}/i',
             'user_name'               => 'required',

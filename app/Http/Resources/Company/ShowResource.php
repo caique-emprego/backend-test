@@ -4,6 +4,7 @@ namespace App\Http\Resources\Company;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
+// Rota 3: Trocaria para CompanyResource
 class ShowResource extends JsonResource
 {
     /**

@@ -22,6 +22,7 @@ class ActiveTest extends TestCase
         $account = Account::factory()->registered()->create(
             [
                 'user_id' => $user->id,
+                'status' => 'BLOCK',
             ]
         );
         $token = $user->createToken(config('auth.token_name'))->plainTextToken;

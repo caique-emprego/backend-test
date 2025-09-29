@@ -140,6 +140,7 @@ class Gateway
             return;
         }
 
+        // Rota 9: sem validaçao caso a autenticaçao falhe, o token nao é gerado e o sistema quebra
         $data = $this->newClient()
             ->post(
                 $this->getAuthUrl(),
@@ -266,6 +267,11 @@ class Gateway
      * @param Response $response
      *
      * @return array
+     */
+
+    /**
+     * Rota 10: Deveria ser criada uma classe para tratamento das responses.
+     * Nao faz sentido deixar essa funçao na camada de integraçao do BaaS
      */
     protected function formatResponse(Response $response): array
     {

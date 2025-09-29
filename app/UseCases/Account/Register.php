@@ -70,6 +70,13 @@ class Register extends BaseUseCase
      */
     protected function register(): void
     {
+        /**
+         * Rota 9: A implementaçao da integraçao com a BaaS deveria ser desaclopada de forma
+         * que fosse possivel trocar de fornecedor sem impactar o código e a camada de UseCase
+         * nao deveria ter que conhecer detalhes da integraçao.
+         * Nao foi feita uma interface para a integraçao com a BaaS.
+         */
+
         $this->account = (new BankingCreate(
             $this->user['name'],
             $this->user['document_number'],

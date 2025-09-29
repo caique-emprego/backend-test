@@ -81,6 +81,10 @@ class Register extends BaseUseCase
     public function handle(): array
     {
         try {
+
+            /**
+             * Rota 13: Aqui temos o mesmo problema da Rota 11 e 12.
+             */
             $domain = $this->checkIfCanRegister();
             $this->register($domain);
             $this->store($domain);

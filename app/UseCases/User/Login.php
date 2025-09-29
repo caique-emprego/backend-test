@@ -4,6 +4,7 @@ namespace App\UseCases\User;
 
 use Throwable;
 use App\UseCases\BaseUseCase;
+// Rota 2: Alias com sneak_case
 use App\Repositories\Token\Create as create_token;
 
 class Login extends BaseUseCase
@@ -43,6 +44,7 @@ class Login extends BaseUseCase
         try {
             $this->createToken();
         } catch (Throwable $th) {
+            // Rota 2: Ao invés de utilizar try catch eu criaria um handler global para tratar erros internos como esse e só utilizaria throw em casos de erros esperados (Exceptions)
             $this->defaultErrorHandling(
                 $th,
                 [

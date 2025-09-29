@@ -15,6 +15,8 @@ abstract class BaseDomain
      *
      * @return mixed
      */
+
+    // Rota 1: Não deveria existir esse método.
     public function __get(string $prop): mixed
     {
         return $this->{$prop};

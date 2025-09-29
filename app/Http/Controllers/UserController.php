@@ -39,6 +39,7 @@ class UserController extends Controller
      */
     public function register(RegisterRequest $request): JsonResponse
     {
+        // Rota 1: Objeto desnecessário
         $params = new CreateFirstUserParams(
             $request->company_name,
             $request->company_document_number,
@@ -69,6 +70,7 @@ class UserController extends Controller
      */
     public function login(): JsonResponse
     {
+        // Rota 2: de acordo com a documentaçao do laravel, o método Auth::id() retorna o id do usuário autenticado. O que nao faz sentido aqui já que essa deveria ser a própria rota de autenticaçao
         $response = (new Login(Auth::id()))->handle();
 
         return $this->response(

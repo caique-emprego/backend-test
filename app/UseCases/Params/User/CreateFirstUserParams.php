@@ -4,6 +4,7 @@ namespace App\UseCases\Params\User;
 
 use App\UseCases\Params\BaseParams;
 
+// Rota 1: Separar usuário e empresa em entidades diferentes ao invés de criar um Objeto Params especifico pra rota
 class CreateFirstUserParams extends BaseParams
 {
     /**

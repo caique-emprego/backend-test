@@ -22,6 +22,8 @@ class Controller extends BaseController
      *
      * @return JsonResponse
      */
+
+    // Rota 1: Instanciar a classe desnecessário
     public function response(DefaultResponse $response): JsonResponse
     {
         $jsonOptions = JSON_UNESCAPED_UNICODE + JSON_PRESERVE_ZERO_FRACTION;

@@ -4,6 +4,7 @@ namespace App\Http\Resources\Company;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
+// Rota 4: UpdateResource e Show Resource sao o mesmo. Trocar para CompanyResource
 class UpdateResource extends JsonResource
 {
     /**

@@ -5,6 +5,7 @@ namespace App\Repositories\Company;
 use App\Models\Company;
 use App\Repositories\BaseRepository;
 
+// Rota 1: Nome de repositório nao faz sentido (FindCompanyByDocumentNumber seria melhor).
 class CanUseDocumentNumber extends BaseRepository
 {
     /**

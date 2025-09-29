@@ -9,6 +9,11 @@ use App\Repositories\User\Find;
 class show extends BaseUseCase
 {
     /**
+     * Rota 6: O nome da classe e do arquivo devem ser PascalCase.
+     * Além disso as propriedades e variáveis devem ter nomes descritivos.
+     */
+
+    /**
      * Id do usuário
      *
      * @var string

@@ -12,6 +12,8 @@ trait Instancer
      *
      * @return mixed
      */
+
+    // Rota 1: O método é desnecessário, uma vez que o PHP já faz isso nativamente com o operador "new".
     public function instance(string $className, ...$parameters): mixed
     {
         return new $className(...$parameters);

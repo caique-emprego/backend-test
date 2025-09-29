@@ -36,6 +36,11 @@ class CardController extends Controller
      */
     public function register(string $userId, Request $request): JsonResponse
     {
+        /**
+         * Rota 13: Sem o FormRequest nao temos conhecimento da regra de negócio.
+         * Desta forma a regra de negócio fica "escondida" pro frontend gerenciar,
+         * o que pode causar muitos problemas, além do mal uso da API.
+         */
         $response = (new Register($userId, $request->pin, $request->card_id))->handle();
 
         return $this->response(

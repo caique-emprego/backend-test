@@ -40,6 +40,9 @@ class Index extends BaseUseCase
      *
      * @var LengthAwarePaginator
      */
+    /**
+     * Rota 5: A classe LengthAwarePaginator é utilizada para customizar a paginaçao, para esse caso pode-se usar o metódo paginate() do Eloquent que já retorna uma instancia dessa classe
+     */
     protected LengthAwarePaginator $users;
 
     public function __construct(string $companyId, ?string $name, ?string $email, ?string $status)

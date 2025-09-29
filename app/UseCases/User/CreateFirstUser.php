@@ -7,6 +7,8 @@ use App\UseCases\BaseUseCase;
 use App\Domains\User\Create as CreateUserDomain;
 use App\Repositories\Token\Create as CreateToken;
 use App\UseCases\Params\User\CreateFirstUserParams;
+
+// Rota 1: aqui todos as Classses sao chamadas com Alias diferentes, porque apenas nao alterar o nome da própria classe pelo nome do Alias?
 use App\Domains\Company\Create as CreateCompanyDomain;
 use App\Repositories\User\Create as CreateUserRepository;
 use App\Repositories\Company\Create as CreateCompanyRepository;
@@ -16,6 +18,8 @@ class CreateFirstUser extends BaseUseCase
     /**
      * @var CreateFirstUserParams
      */
+
+    // Rota 1: trocar por request (RegisterRequest) ou Entity.
     protected CreateFirstUserParams $params;
 
     /**
@@ -83,6 +87,7 @@ class CreateFirstUser extends BaseUseCase
             $this->params->userDocumentNumber,
             $this->params->email,
             $this->params->password,
+            // Rota 1: Utilizar Enum
             'MANAGER'
         ))->handle();
     }
@@ -116,6 +121,7 @@ class CreateFirstUser extends BaseUseCase
     {
         try {
             $companyDomain = $this->validateCompany();
+            // Rota 1: é feito a criaçao da empresa antes de validar o usuário.
             $this->createCompany($companyDomain);
             $userDomain = $this->validateUser();
             $this->createUser($userDomain);

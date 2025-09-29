@@ -77,6 +77,7 @@ class Update extends BaseDomain
      */
     protected function cryptPassword(?string $password): void
     {
+        // Rota 8: Permitindo senha null no banco
         $this->password = !is_null($password) ? Hash::make($password) : null;
     }
 

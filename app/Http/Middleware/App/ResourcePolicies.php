@@ -5,6 +5,14 @@ namespace App\Http\Middleware\App;
 use Closure;
 use App\Traits\ResponseHelpers;
 
+
+/**
+ *  Rota 3
+ *  Achei legal esse aproach de middleware para lidar com políticas de acesso,
+ *  porém, acredito que o Laravel já possui uma implementação nativa para isso
+ *  entao nao vejo porque implementar isso do zero.
+ *
+ * */
 /**
  * Middleware para validar políticas de acesso aos recursos,
  *

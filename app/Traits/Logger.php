@@ -146,11 +146,13 @@ trait Logger
 
         $description = get_called_class();
 
+        // Laravel já faz o trace da pilha
         // Formatando o nome do método que o erro ocorreu
         $trace    = debug_backtrace(DEBUG_BACKTRACE_IGNORE_ARGS, 2);
         $function = $trace[count($trace) - 1]['function'];
         $action   = mb_strtoupper(Str::snake($function)) . '_ERROR';
 
+        // Rota 1: Criaçao de log de erro nao deve ser feita junto ao throw da exception. Eu utilizaria um middleware (Terminate) para isso.
         $this->createLog(
             $description,
             $action,
@@ -163,6 +165,7 @@ trait Logger
             $level
         );
 
+        // Rota 1: Remover Dump e tratar mensagem de erro corretamente para o usuário
         dump($exception);
 
         // Para evitar propagação de log duplicado, o erro é propagado como
