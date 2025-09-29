@@ -1,0 +1,24 @@
+services:
+  php-fpm:
+    # For the php-fpm service, we will use our common PHP-FPM Dockerfile with the development target
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+      target: development
+      args:
+        UID: ${UID:-1000}
+        GID: ${GID:-1000}
+        XDEBUG_ENABLED: ${XDEBUG_ENABLED:-true}
+        XDEBUG_MODE: develop,coverage,debug,profile
+        XDEBUG_HOST: ${XDEBUG_HOST:-host.docker.internal}
+        XDEBUG_IDE_KEY: ${XDEBUG_IDE_KEY:-DOCKER}
+        XDEBUG_LOG: /dev/stdout
+        XDEBUG_LOG_LEVEL: 0
+    restart: unless-stopped
+    user: "${UID:-1000}:${GID:-1000}"
+    volumes:
+      # Mount the application code for live updates
+      - ./:/var/www
+
+volumes:
+  db_data:

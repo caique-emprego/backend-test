@@ -35,7 +35,7 @@ class Active extends BaseUseCase
      */
     protected function updateDatabase(): void
     {
-        (new RepositoryUpdateStatus($this->userId, 'active'))->handle();
+        (new RepositoryUpdateStatus($this->userId, 'ACTIVE'))->handle();
     }
 
     /**
@@ -54,6 +54,12 @@ class Active extends BaseUseCase
     public function handle(): void
     {
         try {
+            /**
+             * Rota 11: Aqui sao chamadas duas funçoes: Uma faz uma atualizaçao no banco de dados e outra faz uma chamada externa.
+             * O ideal seria que a chamada externa fosse feita primeiro, e caso ela falhe, a atualizaçao no banco de dados nao deveria ser feita.
+             * Além de que pelo nome das funçoes, nao fica claro que uma faz uma chamada externa e a outra faz uma atualizaçao no banco de dados.
+             * */
+
             $this->updateDatabase();
             $this->updateStatus();
         } catch (Throwable $th) {

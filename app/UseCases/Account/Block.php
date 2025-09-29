@@ -35,7 +35,7 @@ class Block extends BaseUseCase
      */
     protected function updateDatabase(): void
     {
-        (new RepositoryUpdateStatus($this->userId, 'block'))->handle();
+        (new RepositoryUpdateStatus($this->userId, 'BLOCK'))->handle();
     }
 
     /**
@@ -54,6 +54,11 @@ class Block extends BaseUseCase
     public function handle(): void
     {
         try {
+            /**
+             * Rota 12: Aqui temos o mesmo problema da Rota 11. Além de que ambas as rotas fazem a mesma coisa, só mudando o status.
+             * O ideal seria termos uma única Classe que recebesse o status como parâmetro e nao utilizar o status ou verbo como nome da Classe
+             * */
+
             $this->updateDatabase();
             $this->updateStatus();
         } catch (Throwable $th) {
